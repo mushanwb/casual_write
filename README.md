@@ -11,8 +11,6 @@ no hava any nutrition
 
     private String sex = "boy";
 
-    private String email = "1216476406qq@gmail.com";
-
     private String work = "PHP";
 
     public static void Say() {
