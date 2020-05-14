@@ -1,4 +1,3 @@
-package com.github.hcsp.polymorphism;
 
 class test {
     public static void main(String[] args) {
