@@ -7,7 +7,7 @@ no hava any nutrition
 
     private GirlFriend girlFirend = new GirlFriend();
 
-    private int age = 18;
+    private static int age = 18;
 
     private String sex = "boy";
 
