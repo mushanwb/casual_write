@@ -22,20 +22,30 @@ public class No122 {
         System.out.println(maxProfit(prices));
     }
 
+//    public static int maxProfit(int[] prices) {
+//        int i = 0;
+//        int sum = 0;
+//        while (i < prices.length-1) {
+//            int j = i + 1;
+//            if (prices[i] > prices[j]) {
+//                i++;
+//                continue;
+//            }
+//            while (j < prices.length && prices[j] > prices[j-1]) {
+//                j++;
+//            }
+//            sum = sum + prices[j-1] - prices[i];
+//            i = j;
+//        }
+//        return sum;
+//    }
+    
     public static int maxProfit(int[] prices) {
-        int i = 0;
         int sum = 0;
-        while (i < prices.length-1) {
-            int j = i + 1;
-            if (prices[i] > prices[j]) {
-                i++;
-                continue;
+        for (int i = 0; i < prices.length -1 ; i++) {
+            if (prices[i] < prices[i+1]) {
+                sum = sum + prices[i+1] - prices[i];
             }
-            while (j < prices.length && prices[j] > prices[j-1]) {
-                j++;
-            }
-            sum = sum + prices[j-1] - prices[i];
-            i = j;
         }
         return sum;
     }
