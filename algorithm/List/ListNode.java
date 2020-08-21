@@ -3,8 +3,8 @@ package List;
 public class ListNode {
     private static ListNode head = new ListNode();
 
-    private Integer data;
-    private ListNode next;
+    public Integer data;
+    public ListNode next;
 
     public static ListNode getHead() {
         return head;
@@ -12,22 +12,6 @@ public class ListNode {
 
     public static void setHead(ListNode head) {
         ListNode.head = head;
-    }
-
-    public Integer getData() {
-        return data;
-    }
-
-    public void setData(Integer data) {
-        this.data = data;
-    }
-
-    public ListNode getNext() {
-        return next;
-    }
-
-    public void setNext(ListNode next) {
-        this.next = next;
     }
 
     public ListNode() {
