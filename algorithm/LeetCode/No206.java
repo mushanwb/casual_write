@@ -1,6 +1,8 @@
 package LeetCode;
 
-import javax.swing.*;
+import List.ListNode;
+
+import java.util.Arrays;
 
 public class No206 {
 
@@ -20,12 +22,16 @@ public class No206 {
      */
 
     public static void main(String[] args) {
-        int[] datas = {2,3,4,5};
-        ListNode head = ListNode.head;
+        int[] datas = {1,2,3,4,5};
+        ListNode firstNode = new ListNode(datas[0]);
+        ListNode.setHead(firstNode);
+        ListNode head = ListNode.getHead();
         for (int data:datas) {
-            ListNode.addNode(data);
+            head.addData(data);
         }
-        ListNode node = reverseList(head);
+        System.out.println(Arrays.toString(ListNode.headToArray(head)));
+        ListNode resultHead = reverseList(head);
+        System.out.println(Arrays.toString(ListNode.headToArray(resultHead)));
     }
 
     // 链表反转思路:获取当前的链表节点值,并且引用到临时链表中,
@@ -52,25 +58,7 @@ public class No206 {
         return newHead;
     }
 
-    // 链表
-    static class ListNode {
-        int val;
-        ListNode next;
-        private static ListNode head = new ListNode(1);
 
-        ListNode(int x) { val = x; }
-
-        // 添加链表元素
-        public static void addNode(int data) {
-            ListNode node = new ListNode(data);
-            node.next = null;
-            ListNode temp = head;
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-            temp.next = node;
-        }
-    }
 
 
 
