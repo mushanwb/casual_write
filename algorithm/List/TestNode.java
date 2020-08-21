@@ -1,8 +1,9 @@
 package List;
 
+import java.util.Arrays;
+
 public class TestNode {
     public static void main(String[] args) {
-
         ListNode listNode = new ListNode(1);
         ListNode.setHead(listNode);
         ListNode head = ListNode.getHead();
@@ -11,10 +12,13 @@ public class TestNode {
         head.addData(4);
         head.addData(5);
         head.addData(6);
-//        head.deleteNode(head,3);
-//        head.insertNode(head,10,5);
-        head.traverse(head);
-        System.out.println("链表长度：" + head.linkListLength(head));
+
+//        head.deleteNode(head,1);
+//        head.insertNode(head,1,10);
+//        head.traverse(head);
+        System.out.println(Arrays.toString(ListNode.headToArray(head)));
+//        System.out.println("链表长度：" + ListNode.linkListLength(head));
     }
+
 
 }

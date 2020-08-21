@@ -28,6 +28,25 @@ public class ListNode {
     }
 
     /**
+     * 将链表转化为数组，方便打印
+     *
+     * @param head 链表
+     * @return 返回数组
+     */
+    public static int[] headToArray(ListNode head) {
+        ListNode temp = head;
+        int length = linkListLength(temp);
+        int[] headArray = new int[length];
+        int i = 0;
+        while (head != null) {
+            headArray[i] = head.data;
+            head = head.next;
+            i++;
+        }
+        return headArray;
+    }
+
+    /**
      * 向链表添加数据
      *
      * @param value 要添加的数据
@@ -51,7 +70,7 @@ public class ListNode {
     public void traverse(ListNode head) {
 
         //临时节点，从首节点开始
-        ListNode temp = head.next;
+        ListNode temp = head;
 
         while (temp != null) {
 
@@ -73,16 +92,29 @@ public class ListNode {
         if (index < 1 || index > linkListLength(head) + 1) {
             return;
         }
-        //临时节点，从头节点开始
+        //临时节点
         ListNode temp = head;
 
-        //记录遍历的当前位置
-        int currentPos = 0;
+        //插入头结点思路：先将头结点值拿出来，创建成新节点
+        //将原来的头结点值更改为要插入的节点值
+        //将拿出来的头节点插入到第二个节点中
+        if (index == 1) {
+            int tempData = temp.data;
+            temp.data = value;
+            ListNode insertListNode = new ListNode(tempData);
+            insertListNode.next = temp.next;
+            temp.next = insertListNode;
+            return;
+        }
 
         //初始化要插入的节点
         ListNode insertListNode = new ListNode(value);
 
-        while (temp.next != null) {
+        //记录遍历的当前位置
+        int currentPos = 1;
+
+        //从头节点开始
+        while (temp != null) {
             //找到上一个节点的位置了
             if (currentPos == (index-1)) {
                 //temp表示的是上一个节点
@@ -104,8 +136,8 @@ public class ListNode {
     /**获取链表长度
      * @param head 指针
      */
-    public int linkListLength(ListNode head) {
-        ListNode temp = head.next;
+    public static int linkListLength(ListNode head) {
+        ListNode temp = head;
         int length = 0;
         while (temp != null) {
             temp = temp.next;
@@ -125,9 +157,15 @@ public class ListNode {
 
         ListNode temp = head;
 
-        int currentPos = 0;
+        if (index == 1) {
+            temp.data = temp.next.data;
+            temp.next = temp.next.next;
+            return;
+        }
 
-        while (temp.next != null) {
+        int currentPos = 1;
+
+        while (temp != null) {
             if (currentPos == (index-1)) {
 
                 ListNode deleteListNode = temp.next;
