@@ -50,32 +50,40 @@ public class Sort {
     }
 
     //快速排序（ O(nlogn) ）(重点)
-    public static void quickSort(int[] a, int low, int hight) {
-        int i = low;
-        int j = hight;
-        if (low > hight) {
+    public static void quickSort(int[] array, int start, int end) {
+        int i = start;
+        int j = end;
+
+        if (i >= j) {
             return;
         }
-        int temp = a[j];
+
+        int flag = array[i];
+
         while (i < j) {
-            while (i < j && a[i] < temp) {
-                i++;
-            }
-            if (i < j) {
-                a[j] = a[i];
-                a[i] = temp;
-            }
-            while (i < j && a[j] >= temp) {
+            while (i < j && array[j] >= flag) {
                 j--;
             }
+
             if (i < j) {
-                a[i] = a[j];
-                a[j] = temp;
+                int temp = array[j];
+                array[j] = flag;
+                array[i] = temp;
+            }
+
+            while (i < j && array[i] < flag) {
+                i++;
+            }
+
+            if (i < j) {
+                int temp = array[i];
+                array[i] = flag;
+                array[j] = temp;
             }
         }
-//        a[i] = temp;
-        quickSort(a,low,i-1);
-        quickSort(a,i+1,hight);
+
+        quickSort(array, start, i);
+        quickSort(array, j+1, end);
 
     }
 
