@@ -1,13 +1,22 @@
 package LeetCode;
 
-import List.ListNode;
-
 public class No141 {
 
     // 题目和实例连接: https://leetcode-cn.com/problems/linked-list-cycle/
 
     public static void main(String[] args) {
+        ListNode node = new ListNode(1);
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(3);
+        ListNode node3 = new ListNode(4);
+        ListNode node4 = new ListNode(5);
 
+        node.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node2;
+        System.out.println(hasCycle(node));
     }
 
 
@@ -22,7 +31,7 @@ public class No141 {
      *     }
      * }
      */
-    public boolean hasCycle(ListNode head) {
+    public static boolean hasCycle(ListNode head) {
 
         if (head == null || head.next == null) {
             return false;
@@ -44,6 +53,15 @@ public class No141 {
         }
 
         return false;
+    }
+
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        public ListNode(int val) {
+            this.val = val;
+        }
     }
 
 }
