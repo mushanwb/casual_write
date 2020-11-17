@@ -1,9 +1,6 @@
 package Tree;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class BinaryTreeDfs {
 
@@ -43,8 +40,19 @@ public class BinaryTreeDfs {
         node6.left = node7;
         node6.right = node10;
 
-        System.out.println(dfs3(node1));
+        System.out.println(dfs4(node1));
     }
+
+    /*
+            树
+            1
+           / \
+          2   3
+         / \   \
+        4   5   6
+       / \     / \
+      8   9   7   10
+     */
 
     //解法一、 二叉树的深度优先遍历（前序 非递归）
     public static List<Integer> dfs(TreeNode root) {
@@ -131,5 +139,33 @@ public class BinaryTreeDfs {
             recursionPreorderTraversal(root.right, list);
         }
     }
+
+     /*
+            树
+            1
+           / \
+          2   3
+         / \   \
+        4   5   6
+       / \     / \
+      8   9   7   10
+
+     */
+
+     public static List<Integer> dfs4(TreeNode root) {
+         List<Integer> list = new ArrayList<>();
+         recursive(root, list);
+         return list;
+     }
+
+    // 二叉树中序遍历(递归)
+    public static void recursive(TreeNode root, List<Integer> list) {
+        if (root != null) {
+            recursive(root.left, list);
+            list.add(root.value);
+            recursive(root.right, list);
+        }
+    }
+
 
 }
