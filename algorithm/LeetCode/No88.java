@@ -31,13 +31,13 @@ public class No88 {
         int i = 0;
         int j = 0;
         while (i < n) {
-            if ((m-1-j) < 0 || nums1[m-1-j] < nums2[n-1-i]) {
-                nums1[m+n-1-j-i] = nums2[n-1-i];
-                i++;
-            } else {
-                nums1[m+n-1-j-i] = nums1[m-1-j];
-                j++;
-            }
+                if ((m-1-j) < 0 || nums1[m-1-j] < nums2[n-1-i]) {
+                    nums1[m+n-1-j-i] = nums2[n-1-i];
+                    i++;
+                } else {
+                    nums1[m+n-1-j-i] = nums1[m-1-j];
+                    j++;
+                }
         }
     }
 }
