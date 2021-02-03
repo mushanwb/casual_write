@@ -180,4 +180,24 @@ public class ListNode {
         }
     }
 
+
+    /**
+     * 链表翻转
+     * @param head 头节点
+     * @return 翻转后链表
+     *
+     *  1 -> 4 -> 5 -> 7
+     */
+    public static ListNode reverseLinked(ListNode head) {
+        ListNode endNode = null;
+
+        while (head.next != null ) {
+            ListNode tempNode = head;
+            head = head.next;
+            tempNode.next = endNode;
+            endNode = tempNode;
+        }
+
+        return endNode;
+    }
 }
