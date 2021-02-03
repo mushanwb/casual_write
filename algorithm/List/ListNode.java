@@ -200,4 +200,34 @@ public class ListNode {
 
         return endNode;
     }
+
+    /**
+     * 判断链表是否成环
+     * @param head 头节点
+     * @return true or false
+     */
+    public static boolean annulusNode(ListNode head) {
+        if (head.next == null || head.next.next == null) {
+            return false;
+        }
+
+        // 快慢指针
+        ListNode slow = head.next;
+        ListNode fast = head.next.next;
+
+        while (fast.next != null) {
+            slow = slow.next;
+            if (fast.next.next == null) {
+                return false;
+            }
+
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
